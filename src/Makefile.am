@@ -5,6 +5,8 @@ bin_PROGRAMS = httplog
 
 httplog_SOURCES = main.cc \
                   util.hh \
+                  mmap_queue.hh \
+                  mmap_queue.cc \
                   user_data.h \
                   http_server.hh \
                   http_server.cc \

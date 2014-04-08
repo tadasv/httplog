@@ -2,6 +2,7 @@
 #include <event2/event.h>
 
 #include "http_server.hh"
+#include "mmap_queue.hh"
 
 
 int main(int argc, const char *argv[])
@@ -12,6 +13,9 @@ int main(int argc, const char *argv[])
         perror("event_base_new");
         exit(-1);
     }
+
+    auto *queue = new MMQueue();
+    delete queue;
 
     auto server = HttpServer();
     server.Init(loop, 8888, 0xffff);
